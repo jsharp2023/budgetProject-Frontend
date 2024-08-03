@@ -10,7 +10,7 @@ const AddTransaction = ({ addTransaction }) => {
     let parsedAmount = parseFloat(amount);
 //check num valid
     if (isNaN(parsedAmount)) {
-      alert("Amount must be a valid number");
+      alert("Must be a valid number");
       return;
     }
 
