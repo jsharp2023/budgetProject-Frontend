@@ -54,6 +54,7 @@ const AddTransaction = ({ addTransaction }) => {
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="Income">Income</option>
           <option value="Expense">Expense</option>
+          <option value="Saving">Saving</option>
         </select>
       </div>
       <button type="submit">Add</button>

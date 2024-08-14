@@ -3,6 +3,7 @@ import TransactionList from './components/TransactionList';
 import AddTransaction from './components/AddTransaction';
 import axios from 'axios';
 import './App.css'
+import TransactionPieChart from './components/TransactionPieChart';
 
 function App() {
   //stores the transaction and total amount
@@ -29,7 +30,8 @@ function App() {
     axios.post('http://localhost:3000/api/transaction/add-income', transaction)
       .then(response => {
         console.log('Added transaction:', response.data);
-        const updatedTransactions = [...transactions, response.data];
+        const updatedTransactions = [...transactions, response.data.payload];
+        console.log(updatedTransactions)
         setTransactions(updatedTransactions);
         calculateTotal(updatedTransactions);
       })
@@ -53,6 +55,7 @@ function App() {
       <AddTransaction addTransaction={addTransaction} />
       <TransactionList transactions={transactions} deleteTransaction={deleteTransaction} />
       <h2>Total: ${total.toFixed(2)}</h2>
+      <TransactionPieChart transactions={transactions} />
     </div>
   );
 }
