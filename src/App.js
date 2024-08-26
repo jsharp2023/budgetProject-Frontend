@@ -4,6 +4,8 @@ import AddTransaction from './components/AddTransaction';
 import axios from 'axios';
 import './App.css'
 import TransactionPieChart from './components/TransactionPieChart';
+import MyCalendar from './components/Calendar';
+
 
 function App() {
   //stores the transaction and total amount
@@ -52,6 +54,7 @@ function App() {
   return (
     <div className="App">
       <h1>Budget Tracker</h1>
+      <MyCalendar />
       <AddTransaction addTransaction={addTransaction} />
       <TransactionList transactions={transactions} deleteTransaction={deleteTransaction} />
       <h2>Total: ${total.toFixed(2)}</h2>
